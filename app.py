@@ -22,6 +22,9 @@ def get_random_power():
         if "Fanon:" in power_name:
             return get_random_power()  # Reroll if the power name contains "Fanon:"
 
+        if "Trait:" in power_name:
+            return get_random_power()  # Reroll if the power name contains "Trait:"
+
         # Extract capabilities
         capabilities = "Capabilities not available"
         capabilities_section = soup.find('span', {'id': 'Capabilities'})
