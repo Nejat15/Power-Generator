@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Power Generator</title>
+    <style>
+        body {
+            font-family: Helvetica, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 20px;
+        }
+        .button {
+            font-size: 18px;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .history-button {
+            font-size: 14px;
+            padding: 5px 10px;
+            background-color: #f0f8ff;
+            color: black;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .history-button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ power }}</h1>
+    <p>{{ capabilities }}</p>
+    <p><a href="{{ url }}" target="_blank">Open Website</a></p>
+
+    <h3>Last 10 Powers:</h3>
+    <div>
+        {% for index, (power, _, _) in enumerate(power_history) %}
+            <button class="history-button" onclick="window.location.href='/power/{{ index }}'">{{ power }}</button>
+        {% endfor %}
+    </div>
+
+    <br>
+    <button class="button" onclick="window.location.href='/'">Generate New Power</button>
+</body>
+</html>
